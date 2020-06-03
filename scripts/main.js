@@ -37,7 +37,7 @@ function populateListProductChoices(slct1, slct2) {
 		//document.write(s1.value);
 		//document.write(slct1);
 	// obtain a reduced list of products based on restrictions
-    var optionArray = restrictListProducts(products, s1.value);
+    var optionArray = restrictListProducts(products, s1);
 
 	// for each item in the array, create a checkbox element, each containing information such as:
 	// <input type="checkbox" name="product" value="Bread">

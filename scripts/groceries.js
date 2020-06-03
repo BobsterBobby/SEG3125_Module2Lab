@@ -102,8 +102,73 @@ var products = [
 
 function restrictListProducts(prods, restriction) {
 	let product_names = [];
-	//var 
+	var veget, glutFree, sugFree, lactFree, none;
+	var num, num1;
+	veget = glutFree = sugFree = lactFree = none = false;
+	num = 0;
+	for ( var i = 0; i < restriction.options.length; i++ ){
+		var o = restriction.options[i];
+		if(o.selected == true){
+			alert(o.value);
+			if (o.value == "Vegetarian"){
+				veget = true;
+				num++;
+			}
+
+			if (o.value == "GlutenFree"){
+				glutFree = true;
+				num++;
+			}
+
+			if (o.value == "SugarFree"){
+				sugFree = true;
+				num++;
+			}
+
+			if (o.value == "LactoseFree"){
+				lactFree = true;
+				num++;
+			}
+
+			if (o.value == "None"){
+				none = true;
+			}
+		}
+	}
+
 	for (let i=0; i<prods.length; i+=1) {
+		if ((none == true) &&
+			(veget == false)&&
+			(glutFree == false)&&
+			(sugFree == false)&&
+			(lactFree == false)){
+			product_names.push(prods[i].name);
+		}
+		else {
+			num1 = 0;
+			if ((veget == true) && (prods[i].vegetarian == true)){
+				num1++;
+			}
+
+			if ((glutFree == true) && (prods[i].glutenFree == true)){
+				num1++;
+			}
+
+			if ((sugFree == true) && (prods[i].sugarFree == true)){
+				num1++;
+			}
+
+			if ((lactFree == true) && (prods[i].lactoseFree == true)){
+				num1++;
+			}
+
+			if (num == num1){
+				product_names.push(prods[i].name);
+			}
+		}
+	}
+
+	/* for (let i=0; i<prods.length; i+=1) {
 		if (isElemOf (prods[i], product_names)){
 			//ignore duplicates
 		}
@@ -122,7 +187,7 @@ function restrictListProducts(prods, restriction) {
 		else if (restriction == "None"){
 			product_names.push(prods[i].name);
 		}
-	}
+	} */
 	return product_names;
 }
 
