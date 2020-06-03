@@ -1,6 +1,7 @@
 	
 // Array of products, each product is an object with different fieldset
-// A set of ingredients should be added to products		 
+// A set of ingredients should be added to products	
+// Edited by Robert Zhang S#:300077171	 
 
 var products = [
 	{
@@ -105,11 +106,13 @@ function restrictListProducts(prods, restriction) {
 	var veget, glutFree, sugFree, lactFree, organ, none;
 	var num, num1;
 	veget = glutFree = sugFree = lactFree = organ = none = false;
-	num = 0;
+	num = -1;
+	//Read inputs
 	for ( var i = 0; i < restriction.options.length; i++ ){
 		var o = restriction.options[i];
 		if(o.selected == true){
-			alert(o.value); //comment
+			num = 0;
+			//alert(o.value); //debug
 			if (o.value == "Vegetarian"){
 				veget = true;
 				num++;
@@ -138,9 +141,13 @@ function restrictListProducts(prods, restriction) {
 			if (o.value == "None"){
 				none = true;
 			}
+
+			if (o.value == ""){
+				num = -1;
+			}
 		}
 	}
-
+	//filter
 	for (let i=0; i<prods.length; i+=1) {
 		if ((none == true) &&
 			(veget == false)&&

@@ -1,4 +1,5 @@
 /* This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp> */
+/*Edited by Robert Zhang S#:300077171*/
 
 /* Style the tab */
 .tab {
@@ -10,7 +11,7 @@
 /* Style the buttons that are used to open the tab content */
 .tab button {
   background-color: inherit;
-  float: center;
+  float: center; /*looks better*/
   border: none;
   outline: none;
   cursor: pointer;
