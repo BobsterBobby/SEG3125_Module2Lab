@@ -26,7 +26,8 @@
 			<h3>Client Information</h3>
 			<p>Tell us a bit about you.</p>
 				Choose a Category:
-				<select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')" multiple>
+				<br>
+				<select id="dietSelect" name="dietSelect" multiple>
 					<option value=""></option>
 					<option value="Vegetarian">Vegetarian</option>
 					<option value="GlutenFree">GlutenFree</option>
@@ -34,6 +35,8 @@
 					<option value="LactoseFree">LactoseFree</option>
 					<option value="None">None</option>
 				</select>
+				<br>
+				<button id="addChoice" type = "button" value = "Submit" class="block" onclick="populateListProductChoices('dietSelect', 'displayProduct')">Submit</button>
 		</div>
 
 		<div id="Products" class="tabcontent">
@@ -54,6 +57,9 @@
 
 		<script src="scripts/groceries.js"></script>
 		<script src="scripts/main.js"></script>
-
+		
+		<h2><footer>
+				Website designed by Robert Zhang (300077171)
+		</footer></h2>
 	</body>
 </html>

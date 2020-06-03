@@ -102,6 +102,7 @@ var products = [
 
 function restrictListProducts(prods, restriction) {
 	let product_names = [];
+	//var 
 	for (let i=0; i<prods.length; i+=1) {
 		if (isElemOf (prods[i], product_names)){
 			//ignore duplicates
