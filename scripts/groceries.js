@@ -102,14 +102,14 @@ var products = [
 
 function restrictListProducts(prods, restriction) {
 	let product_names = [];
-	var veget, glutFree, sugFree, lactFree, none;
+	var veget, glutFree, sugFree, lactFree, organ, none;
 	var num, num1;
-	veget = glutFree = sugFree = lactFree = none = false;
+	veget = glutFree = sugFree = lactFree = organ = none = false;
 	num = 0;
 	for ( var i = 0; i < restriction.options.length; i++ ){
 		var o = restriction.options[i];
 		if(o.selected == true){
-			alert(o.value);
+			alert(o.value); //comment
 			if (o.value == "Vegetarian"){
 				veget = true;
 				num++;
@@ -129,6 +129,11 @@ function restrictListProducts(prods, restriction) {
 				lactFree = true;
 				num++;
 			}
+			
+			if (o.value == "Organic"){
+				organ = true;
+				num++;
+			}
 
 			if (o.value == "None"){
 				none = true;
@@ -141,7 +146,8 @@ function restrictListProducts(prods, restriction) {
 			(veget == false)&&
 			(glutFree == false)&&
 			(sugFree == false)&&
-			(lactFree == false)){
+			(lactFree == false)&&
+			(organ == false)){
 			product_names.push(prods[i].name);
 		}
 		else {
@@ -159,6 +165,10 @@ function restrictListProducts(prods, restriction) {
 			}
 
 			if ((lactFree == true) && (prods[i].lactoseFree == true)){
+				num1++;
+			}
+
+			if ((organ == true) && (prods[i].organic == true)){
 				num1++;
 			}
 
